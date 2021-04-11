@@ -8,6 +8,11 @@ public class PixelPooling : MonoBehaviour
     public int poolSize;
     private Queue<GameObject> poolQueue = new Queue<GameObject>();
 
+    [Header("Spawn Settings")]
+    public float spawnRate;
+    [SerializeField]
+    private float timer;
+
     public static PixelPooling instance;
 
     private void Awake()
@@ -28,6 +33,19 @@ public class PixelPooling : MonoBehaviour
 
             pixel.transform.position = Vector3.zero;
             pixel.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        // Pixel spawning
+        timer += Time.deltaTime;
+
+        if (timer >= spawnRate)
+        {
+            GameObject pixel = PixelPooling.instance.RetrieveFromQueue();
+            pixel.transform.position = transform.position;
+            timer = 0;
         }
     }
 
