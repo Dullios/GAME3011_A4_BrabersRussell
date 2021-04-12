@@ -14,13 +14,13 @@ public class SignalEmitter : MonoBehaviour
 
     [SerializeField]
     private float degrees;
-    [Range(0, 50)]
+    [Range(10, 100)]
     public float amplitude;
-    [Range(0, 10)]
+    [Range(1, 2)]
     public float period;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Emit Pixels
         timer += Time.deltaTime;
@@ -39,8 +39,8 @@ public class SignalEmitter : MonoBehaviour
         degrees = Mathf.Repeat(degrees + (Time.deltaTime * degreesPerSecond), 360.0f);
         float radians = degrees * Mathf.Deg2Rad;
 
-        Vector3 offset = new Vector3(0.0f, amplitude * Mathf.Sin(radians), 0.0f);
+        pos.y = amplitude * Mathf.Sin(radians);
 
-        transform.localPosition = (pos + offset);
+        transform.localPosition = pos;
     }
 }

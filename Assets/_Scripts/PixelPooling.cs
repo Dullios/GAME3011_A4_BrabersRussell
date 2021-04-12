@@ -36,19 +36,6 @@ public class PixelPooling : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        // Pixel spawning
-        //timer += Time.deltaTime;
-
-        //if (timer >= spawnRate)
-        //{
-        //    GameObject pixel = PixelPooling.instance.RetrieveFromQueue();
-        //    pixel.transform.position = transform.position;
-        //    timer = 0;
-        //}
-    }
-
     public GameObject RetrieveFromQueue()
     {
         GameObject pixel = poolQueue.Dequeue();

@@ -6,13 +6,8 @@ public class PixelBehaviour : MonoBehaviour
 {
     public float bounds = 960.0f;
 
-    [Header("Sine Movement")]
     public Vector3 pos;
     public float speed;
-
-    //public float degrees;
-    //public float amplitude;
-    //public float period;
 
     private RectTransform rectTransform;
 
@@ -28,13 +23,7 @@ public class PixelBehaviour : MonoBehaviour
         pos = transform.localPosition;
         pos.x -= speed * Time.deltaTime;
 
-        //float degreesPerSecond = 360.0f / period;
-        //degrees = Mathf.Repeat(degrees + (Time.deltaTime * degreesPerSecond), 360.0f);
-        //float radians = degrees * Mathf.Deg2Rad;
-
-        //Vector3 offset = new Vector3(0.0f, amplitude * Mathf.Sin(radians), 0.0f);
-
-        transform.localPosition = (pos);// + offset);
+        transform.localPosition = (pos);
 
         if (rectTransform.localPosition.x < -bounds)
             PixelPooling.instance.ReturnToQueue(gameObject);
