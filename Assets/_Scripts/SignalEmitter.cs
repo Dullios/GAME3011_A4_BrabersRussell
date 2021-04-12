@@ -10,8 +10,7 @@ public class SignalEmitter : MonoBehaviour
     private float timer;
 
     [Header("Sine Movement")]
-    public Vector3 pos;
-
+    private Vector3 pos;
     [SerializeField]
     private float degrees;
     [Range(10, 100)]
@@ -20,7 +19,7 @@ public class SignalEmitter : MonoBehaviour
     public float period;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // Emit Pixels
         timer += Time.deltaTime;
