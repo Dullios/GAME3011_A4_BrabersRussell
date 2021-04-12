@@ -92,5 +92,5 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   speed: 100
   degrees: 0
-  amplitude: 8
+  amplitude: 1
   period: 1
