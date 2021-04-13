@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SignalEmitter : MonoBehaviour
 {
@@ -41,5 +42,17 @@ public class SignalEmitter : MonoBehaviour
         pos.y = amplitude * Mathf.Sin(radians);
 
         transform.localPosition = pos;
+    }
+
+    public void SlideAmplitude(Slider slider)
+    {
+        amplitude = slider.value;
+    }
+
+    public void SlidePeriod(Slider slider)
+    {
+        float round = Mathf.Round(slider.value * 10.0f) / 10.0f;
+        slider.value = round;
+        period = round;
     }
 }
