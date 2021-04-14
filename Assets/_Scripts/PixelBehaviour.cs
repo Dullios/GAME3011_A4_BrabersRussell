@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PixelBehaviour : MonoBehaviour
 {
+    private Vector3 pos;
+
+    public float speed;
     public float bounds = 960.0f;
 
-    public Vector3 pos;
-    public float speed;
-
     private RectTransform rectTransform;
-
-    // Start is called before the first frame update
-    void Start()
+    private Image image;
+    
+    private void OnEnable()
     {
         rectTransform = GetComponent<RectTransform>();
+        image = GetComponent<Image>();
+
+        GameManager.instance.OnColorChange.AddListener(ChangeColor);
+        image.color = GameManager.instance.signalColor;
     }
 
     // Update is called once per frame
@@ -27,5 +32,15 @@ public class PixelBehaviour : MonoBehaviour
 
         if (rectTransform.localPosition.x < -bounds)
             PixelPooling.instance.ReturnToQueue(gameObject);
+    }
+
+    public void ChangeColor(Color c)
+    {
+        image.color = c;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.instance.OnColorChange.RemoveListener(ChangeColor);
     }
 }
