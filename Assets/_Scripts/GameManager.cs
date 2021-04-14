@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     public Slider amplitudeSlider;
     public Slider periodSlider;
 
+    [Header("Sounds")]
+    public AudioSource successSFX;
+
     public UnityEvent<Color> OnColorChange;
     
     public static GameManager instance;
@@ -168,6 +171,7 @@ public class GameManager : MonoBehaviour
         if((playerSignal.x >= signalGoal.x - 0.1f && playerSignal.x <= signalGoal.x + 0.1f) &&
             (playerSignal.y >= signalGoal.y - 3.0f && playerSignal.y <= signalGoal.y + 3.0f))
         {
+            successSFX.Play();
             checkmarks[signalsMatched].transform.GetChild(0).gameObject.SetActive(true);
             signalsMatched++;
 
