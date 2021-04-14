@@ -1,0 +1,33 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "PlayerActionMap",
+            "id": "0b4e3507-eb04-436a-9910-e45c27d17887",
+            "actions": [
+                {
+                    "name": "MouseRelease",
+                    "type": "Button",
+                    "id": "80f6861c-21b5-4f90-8bf9-44f84a7f5d53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "21080a7b-225c-4745-8bed-4c23ae5d2dd3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseRelease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
